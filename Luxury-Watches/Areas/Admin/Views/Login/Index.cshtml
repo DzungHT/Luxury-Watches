@@ -1,0 +1,84 @@
+﻿@using Luxury_Watches.Areas.Admin.Models;
+@model Error
+
+<!DOCTYPE html>
+<html lang="en" class="body-full-height">
+<head>
+    <!-- META SECTION -->
+    <title>Luxury Watches - Admin's Web</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    @*<link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css" />*@
+    <link href="~/Areas/Admin/css/theme-light.css" rel="stylesheet" />
+
+    <!-- .END CSS INCLUDE -->
+    <style>
+        .login-brand {
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box animated fadeInDown">
+            <div class="login-brand">Luxury Watches</div>
+            <div class="login-body">
+                <div class="login-title"><strong>Xin chào!</strong> Mời bạn đăng nhập</div>
+                <form action="/admin/login" class="form-horizontal" method="post">
+                    @{
+                        if (Model != null && Model.Type == ErrorType.FailedLogin)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <span class="help-block" style="color:#fff;">
+                                        @Model.Msg
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    }
+                    
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input name="username" placeholder="Tài khoản" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input name="password" placeholder="Mật khẩu" type="password" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-link btn-block" style="text-align:left">Quên mật khẩu?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" value="Đăng nhập" class="btn btn-info btn-block" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="login-footer">
+                <div class="pull-left">
+                    &copy; 2016 Cybertron
+                </div>
+                <div class="pull-right">
+                    <a href="#">Liên hệ với chúng tôi</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
